@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CtrlTech</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 16px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #e6a600;
+    }
+    section {
+      margin: 80px 0;
+      text-align: center;
+      padding: 40px 10px;
+    }
+    section h2, section h3 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+    section p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #666;
+      max-width: 800px;
+      margin: auto;
+    }
+    .producto-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .producto {
+      text-align: center;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 240px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .producto:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+    }
+    .producto img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .producto p {
+      font-size: 16px;
+      color: #333;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+    .producto p strong {
+      display: block;
+      font-size: 18px;
+      color: #000;
+    }
+    .producto p span {
+      color: #e6a600;
+      font-weight: 600;
+    }
+    .producto button {
+      margin-top: 10px;
+      background-color: #e6a600;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .producto button:hover {
+      background-color: #d68900;
+    }
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #e6a600;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      z-index: 999;
+    }
+    .mode-toggle:hover {
+      background-color: #d68900;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #fff;
+    }
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #1f1f1f;
+    }
+    body.dark-mode .producto {
+      background-color: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CtrlTech</h1>
+    <nav>
+      <a href="#quienes">Quiénes Somos</a>
+      <a href="#productos">Productos</a>
+      <a href="#elige">¿Por qué elegirnos?</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <button class="mode-toggle" onclick="toggleMode()">🌙 Modo Oscuro</button>
+
+  <section id="quienes">
+    <h2>Quiénes Somos</h2>
+    <p>CtrlTech es una empresa argentina dedicada a la venta de productos tecnológicos, reparación y mantenimiento de computadoras. Enviamos a todo el país con el mejor precio y servicio.</p>
+  </section>
+
+  <section id="elige">
+    <h2>¿Por qué elegirnos?</h2>
+    <ul>
+      <li>No cobramos el armado de las PCs</li>
+      <li>Atención personalizada</li>
+      <li>Productos de primera calidad</li>
+      <li>Envío a todo el país</li>
+    </ul>
+  </section>
+
+  <section id="productos">
+  <h2>Productos</h2>
+
+  <!-- Equipos Armados -->
+  <h3>Equipos Armados</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="COMPU 1.webp" alt="PC Armado Gamer">
+      <p><strong>PC Armado Gamer</strong><span>$999.999</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: PC Armado Gamer', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="compu 2.jpeg" alt="PC Armado Oficina">
+      <p><strong>PC Armado Oficina</strong><span>$482.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: PC Armado Oficina', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="pc 3.jpeg" alt="PC Armado Alta Gama">
+      <p><strong>PC Armado Alta Gama</strong><span>$3.101.158</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: PC Armado Alta Gama', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+  <!-- Teclados -->
+  <h3>Teclados</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="teclado 1.jpg" alt="Teclado Hypermagnetico">
+      <p><strong>SteelSeries Apex PRO TKL Wireless</strong><span>$285.200</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: SteelSeries Apex PRO TKL Wireless', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="teclado 2.jpg" alt="Teclado Logitech G513">
+      <p><strong>Logitech G513 Carbon</strong><span>$128.850</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Logitech G513 Carbon', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="teclado 3.jpg" alt="Redragon Kumara">
+      <p><strong>Redragon Kumara K552</strong><span>$44.900</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Redragon Kumara K552', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="TECLADO 4.jpg" alt="Razer BlackWidow V3">
+      <p><strong>Razer BlackWidow V3 TKL</strong><span>$109.200</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Razer BlackWidow V3 TKL', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+  <!-- Placas de Video -->
+  <h3>Placas de Video</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="placa 1.jpg" alt="ASUS RTX 3060">
+      <p><strong>ASUS RTX 3060 12GB</strong><span>$419.750</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="PLACA 2.jpg" alt="INNO3D RTX 5070 TI">
+      <p><strong>INNO3D RTX 5070 TI 16GB</strong><span>$1.315.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="PLACA 3.jpg" alt="Zotac RTX 5090">
+      <p><strong>Zotac RTX 5090 32GB</strong><span>$4.416.200</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="PLACA 4.jpg" alt="MSI RTX 3050">
+      <p><strong>MSI RTX 3050 6GB</strong><span>$226.550</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+<!-- Sección Mouses -->
+
+<h3>Mouses </h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="mouse 1.jpg" alt="MOUSE 1">
+      <p><strong>Mouse SteelSeries Aerox 9 Wireless Ultra LightWeight Sensor TrueMove</strong><span>$151.700</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="mouse 2.jpg" alt="mouse 2">
+      <p><strong>Mouse Logitech G703 Lightspeed Wireless</strong><span>$70.700</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="mouse 3.jpg" alt="mouse 3">
+      <p><strong>Mouse Logitech G203  Lightsync</strong><span>$23.250</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="Mouse 4.jpg" alt="mouse 4">
+      <p><strong>Mouse Wireless Logitech G PRO X Superlight Hero</strong><span>$119.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+
+<!-- Sección Mouses Pads -->
+
+  <h3>Mouse Pads</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="logitech-desk-mat-studio-series-corner-view-mid-grey.webp" alt="logi mouse pad">
+      <p><strong>Mouse Pad Logitech Mask Mat </strong><span>$39.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="mouse pad steel series.webp" alt="mouse pad steel series">
+      <p><strong>Mouse Pad Steel Series</strong><span>$57.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="red dragon mouse pad.webp" alt="mouse pad red dragon">
+      <p><strong>Mouse Pad Redragon KunLun xxl </strong><span>$40.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="cloud 9 logi.png" alt="mouse pad cloud 9">
+      <p><strong>Mouse Pad Logitech G640 x Cloud 9</strong><span>$38.500</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+  <!-- Secion Monitores... -->
+
+  <h3>Monitores</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="compragamer_Imganen_general_41820_Monitor_Gamer_LG_Ultragear_27GS85Q-B_27__QHD_NANO_IPS_180Hz_G-Sync_FreeSync_4b4dbb60-grn.jpg" alt="mnitor lg 1">
+      <p><strong>Monitor LG 27 Pulgadas 200hz </strong><span>$591.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="monitor samsung.jpg" alt="monitor samsung ">
+      <p><strong> Monitor Samsung 22 Pulgadas 75hz-$155.100</strong><span>$155.100</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="lg curvo.jpg" alt="lg curvo">
+      <p><strong>Monitor LG Curvo 34 Pulgadas 160hz</strong><span>$854.500</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="samsung 2.jpg" alt="samsung 2">
+      <p><strong>Monitor Samsung View Infinity 34 Pulgadas 100hz</strong><span>$617.500</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+<!-- Secion Auriculares... -->
+
+<h3>Auriculares</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="auris momo.jpg" alt="auris momo">
+      <p><strong>Auriculares Logitech G733 Lightspeed Lila</strong><span>$245.750</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="auris logi.jpg" alt="auris logiI">
+      <p><strong>Auriculares Logitech G432 7.1</strong><span>$101.100</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="hyperx_cloud_alpha_wireless_1_main_900x.webp" alt="hyoerx auris 1">
+      <p><strong>Auriculares Hyperx Cloud Alpha Wireless</strong><span>$245.000</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="hyperx_cloud_20flight_1_main_900x.webp" alt="cloud flight auris">
+      <p><strong>Auriculares Hyperx Cloud Flight</strong><span>$241.500</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+  <!-- Secion Mothers ... -->
+  
+  <h3>Motherboards </h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="mother 1.jpg" alt="mother 1">
+      <p><strong>Mother Board Asus Strix X870 Gaming Wifi</strong><span>$525.800</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="Mother 2.jpg" alt="mother 2">
+      <p><strong>Mother Board Asrock B550 Pro4</strong><span>$121.200</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="mother 3.jpg" alt="mother 3">
+      <p><strong>Mother Board ASUS PRIME A520M</strong><span>$75.950</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="Mother 4.jpg" alt="mothre 4">
+      <p><strong>Mother Board ASUS ROG STRIX B650 Gaming Wifi</strong><span>$422.950</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+<!-- SSD... -->
+
+<h3>Disco Rigidos SSD</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="ssd 1.jpg" alt="ssd 1">
+      <p><strong>Disco Solido SSD 4TB Black SN850X 7300MB/s NVMe PCIe Gen4 x4</strong><span>$538.350</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="ssd2.jpg" alt="ssd 2">
+      <p><strong>Disco Solido SSD 2TB Black SN850X Heatsink 7300MB/s NVMe PCIe Gen4 x4</strong><span>$276.500</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="SSD3.jpg" alt="ssd 3">
+      <p><strong>Disco Solido SSD  2TB Platinum P41 7000MB/s NVMe PCIe Gen4 x4</strong><span>$199.750</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="SSD4.jpg" alt="sdd 4">
+      <p><strong>Disco Solido SSD  2TB Green SN350 3200MB/s NVMe PCI-E Gen3 x4</strong><span>$142.150</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+<!-- Secion RAM... -->
+
+<h3>Memorias RAM</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="ram1.jpg" alt="ram 1">
+      <p><strong>Memoria Team DDR5 64 GB (2 x 32 GB) 6000 MHz T-Force Delta RGB Black CL38 Intel XMP 3.0 / AMD EXPO</strong><span>$258.750</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="ram 2.jpg" alt="ram 2">
+      <p><strong>Memoria Team DDR5 64GB (2x32GB) 5200MHz T-Force Delta RGB White CL40 Intel XMP 3.0 / AMD EXPO</strong><span>$228.300</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="ram 3.jpg" alt="ram 3">
+      <p><strong>Memoria Team DDR5 16GB 6000MHz T-Force Vulcan Red CL38 Intel XMP 3.0 / AMD EXPO</strong><span>$64.500</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="ram4.jpg" alt="ram 4">
+      <p><strong>Memoria ADATA DDR4 32GB 3200MHz XPG Spectrix D35G RGB Black CL16</strong><span>$142.150</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+<!-- Secion GABINETES.. -->
+
+<h3>Gabinetes</h3>
+  <div class="producto-container">
+    <div class="producto" data-aos="fade-up">
+      <img src="gabinete.jpg" alt="gabinete 1">
+      <p><strong>Gabinete Lian Li V3000 PLUS ARGB Mesh White Aluminio Vidrio Templado USB-C Full Tower</strong><span>$786.150</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: ASUS RTX 3060', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="gab 2.jpg" alt="gab 2">
+      <p><strong>Gabinete Cooler Master HAF 700 EVO ARGB Vidrio Templado E-ATX Black</strong><span>$638.900</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: INNO3D RTX 5070 TI', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="gab 3.jpg" alt="gab 3">
+      <p><strong>Gabinete HYTE Y70 Pitch Black Vidrio Templado Inc. Cable Riser PCIe 4x16 USB-C 3.2</strong><span>$302.450</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: Zotac RTX 5090', '_blank')">Consultar</button>
+    </div>
+    <div class="producto" data-aos="fade-up">
+      <img src="gab4.jpg" alt="gab 4">
+      <p><strong>Gabinete Be Quiet! SHADOW BASE 800 FX Window White 4x140mm Light Wings Fans USB-C Inc. Controladora</strong><span>$261.200</span></p>
+      <button onclick="window.open('https://wa.me/541154327374?text=Hola! Quiero consultar sobre el producto: MSI RTX 3050', '_blank')">Consultar</button>
+    </div>
+  </div>
+
+
+
+
+
+</section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p><strong>Mail:</strong> contrltech@gmail.com</p>
+    <p><strong>WhatsApp:</strong> +54 11 54327374</p>
+    <p><strong>Instagram:</strong> @CTRLTECH</p>
+    <p><strong>X (Twitter):</strong> @CTRLTECH_</p>
+    <p><strong>Ubicación:</strong> Maipú 168, General Pacheco, Argentina</p>
+    <h3>Métodos de Pago</h3>
+    <ul>
+      <li>Transferencia Bancaria</li>
+      <li>Efectivo</li>
+      <li>Tarjeta de Crédito/Débito</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>CtrlTech - Todos los derechos reservados © 2025</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+      const modeButton = document.querySelector('.mode-toggle');
+      modeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
